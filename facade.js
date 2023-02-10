@@ -19,19 +19,19 @@ const resumeExample = {
 
 class CompanyA {
   checkResume(qualification) {
-    return qualification ? true : false
+    return qualification
   }
 }
 
 class CompanyB {
   checkRequirements(meetsRequirements) {
-    return meetsRequirements ? true : false
+    return meetsRequirements
   }
 }
 
 class CompanyC {
   checkSalaryExpectations(meetsSalaryExpectations) {
-    return meetsSalaryExpectations ? true : false
+    return meetsSalaryExpectations
   }
 }
 
@@ -47,10 +47,10 @@ class ApplyResume {
   
   apply() {
     const qualified = this.#companyA.checkResume(this.qualification);
-    const requrementsMet = this.#companyB.checkRequirements(this.meetsRequirements);
+    const requirementsMet = this.#companyB.checkRequirements(this.meetsRequirements);
     const salaryExpectationsMet = this.#companyC.checkSalaryExpectations(this.meetsSalaryExpectations);
 
-    return qualified && requrementsMet && salaryExpectationsMet ? 'Applicant is suitable for this position' : 'Applicant doesnt match the position'
+    return (!qualified && !requirementsMet && !salaryExpectationsMet) ? 'Applicant doesnt match any company' : `Aplicant is suitable for ${qualified ? 'Company A ' : ''}${requirementsMet ? 'Company B ' : ''}${salaryExpectationsMet ? 'Company C' : ''}`
   }
 }
 
