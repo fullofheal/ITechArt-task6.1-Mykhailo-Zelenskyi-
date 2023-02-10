@@ -39,4 +39,4 @@ class ChainOfResponsibility {
 
 const smallChain = new ChainOfResponsibility([1, 2, 3]);
 
-console.log(smallChain.addElement('element', 2).reverse().addElement(['array', 'element', 1]).flatArray().value());
+console.log(smallChain.addElement('element', 2).reverse().addElement(['array', 'element', 1]).flatArray().value()); // [ 2, 'element', 3, 2, 1, 'array', 'element', 1 ]
