@@ -26,3 +26,12 @@ class Book {
   }
 }
 
+const library = [];
+
+const newBook = new Book('harry potter', 'fantasy', 1234);
+
+library.push(newBook);
+library.push(newBook.clone());
+
+console.log(library);
+
