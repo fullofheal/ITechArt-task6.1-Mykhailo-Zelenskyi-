@@ -12,37 +12,38 @@
 // Implement class that will provide simple interface with one method which allows apply resume for each company and get the result.
 
 const resumeExample = {
-  qualification: true,
+  qualification: false,
   meetsRequirements: false,
   meetsSalaryExpectations: true  
-}
+};
 
 class CompanyA {
   checkResume(qualification) {
-    return qualification
+    return qualification;
   }
 }
 
 class CompanyB {
   checkRequirements(meetsRequirements) {
-    return meetsRequirements
+    return meetsRequirements;
   }
 }
 
 class CompanyC {
   checkSalaryExpectations(meetsSalaryExpectations) {
-    return meetsSalaryExpectations
+    return meetsSalaryExpectations;
   }
 }
 
 class ApplyResume {
-  #companyA = new CompanyA;
-  #companyB = new CompanyB;
-  #companyC = new CompanyC;
+  #companyA = new CompanyA();
+  #companyB = new CompanyB();
+  #companyC = new CompanyC();
+
   constructor(resume) {
-    this.qualification = resume.qualification,
-    this.meetsRequirements = resume.meetsRequirements,
-    this.meetsSalaryExpectations = resume.meetsSalaryExpectations
+    this.qualification = resume.qualification;
+    this.meetsRequirements = resume.meetsRequirements;
+    this.meetsSalaryExpectations = resume.meetsSalaryExpectations;
   }
   
   apply() {
@@ -50,7 +51,7 @@ class ApplyResume {
     const requirementsMet = this.#companyB.checkRequirements(this.meetsRequirements);
     const salaryExpectationsMet = this.#companyC.checkSalaryExpectations(this.meetsSalaryExpectations);
 
-    return (!qualified && !requirementsMet && !salaryExpectationsMet) ? 'Applicant doesnt match any company' : `Aplicant is suitable for ${qualified ? 'Company A ' : ''}${requirementsMet ? 'Company B ' : ''}${salaryExpectationsMet ? 'Company C' : ''}`
+    return (!qualified && !requirementsMet && !salaryExpectationsMet) ? 'Applicant doesnt match any company' : `Aplicant is suitable for ${qualified ? 'Company A ' : ''}${requirementsMet ? 'Company B ' : ''}${salaryExpectationsMet ? 'Company C' : ''}`;
   }
 }
 
