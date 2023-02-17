@@ -3,15 +3,14 @@
 // Implement methods which possible call for array variable in chain.
 
 class ChainOfResponsibility {
-
   constructor(array) {
     this.array = array ? array : [];
-  };
+  }
 
   addElement(...elements) {
     this.array.push(...elements);
     return this;
-  };
+  }
 
   reverse() {
     // // custom implementation
@@ -24,19 +23,26 @@ class ChainOfResponsibility {
     // // short implementation
     this.array = this.array.reverse();
     return this;
-  };
+  }
 
   flatArray() {
     let flatArray = [].concat(...this.array);
     this.array = flatArray;
     return this;
-  };
+  }
 
   value() {
     return this.array;
-  };
+  }
 }
 
 const smallChain = new ChainOfResponsibility([1, 2, 3]);
 
-console.log(smallChain.addElement('element', 2).reverse().addElement(['array', 'element', 1]).flatArray().value()); // [ 2, 'element', 3, 2, 1, 'array', 'element', 1 ]
+console.log(
+  smallChain
+    .addElement("element", 2)
+    .reverse()
+    .addElement(["array", "element", 1])
+    .flatArray()
+    .value()
+); // [ 2, 'element', 3, 2, 1, 'array', 'element', 1 ]

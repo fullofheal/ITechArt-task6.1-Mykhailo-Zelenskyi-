@@ -4,21 +4,21 @@
 
 class Book {
   constructor(title, genre, year) {
-    this.title = title,
-    this.genre = genre,
-    this.year = year
+    this.title = title;
+    this.genre = genre;
+    this.year = year;
   }
 
   setYear(year) {
-    return this.year = year;
+    return (this.year = year);
   }
 
   setTitle(title) {
-    return this.title = title;
+    return (this.title = title);
   }
 
   setGenre(genre) {
-    return this.genre = genre;
+    return (this.genre = genre);
   }
 
   clone() {
@@ -28,10 +28,9 @@ class Book {
 
 const library = [];
 
-const newBook = new Book('harry potter', 'fantasy', 1234);
+const newBook = new Book("harry potter", "fantasy", 1234);
 
 library.push(newBook);
 library.push(newBook.clone());
 
 console.log(library);
-

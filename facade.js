@@ -1,6 +1,6 @@
 // # Façade 1
 
-// You have classes 
+// You have classes
 // ```
 // class CompanyA
 //   method checkResume
@@ -14,7 +14,7 @@
 const resumeExample = {
   qualification: false,
   meetsRequirements: false,
-  meetsSalaryExpectations: true  
+  meetsSalaryExpectations: true,
 };
 
 class CompanyA {
@@ -45,13 +45,21 @@ class ApplyResume {
     this.meetsRequirements = resume.meetsRequirements;
     this.meetsSalaryExpectations = resume.meetsSalaryExpectations;
   }
-  
+
   apply() {
     const qualified = this.#companyA.checkResume(this.qualification);
-    const requirementsMet = this.#companyB.checkRequirements(this.meetsRequirements);
-    const salaryExpectationsMet = this.#companyC.checkSalaryExpectations(this.meetsSalaryExpectations);
+    const requirementsMet = this.#companyB.checkRequirements(
+      this.meetsRequirements
+    );
+    const salaryExpectationsMet = this.#companyC.checkSalaryExpectations(
+      this.meetsSalaryExpectations
+    );
 
-    return (!qualified && !requirementsMet && !salaryExpectationsMet) ? 'Applicant doesnt match any company' : `Aplicant is suitable for ${qualified ? 'Company A ' : ''}${requirementsMet ? 'Company B ' : ''}${salaryExpectationsMet ? 'Company C' : ''}`;
+    return !qualified && !requirementsMet && !salaryExpectationsMet
+      ? "Applicant doesnt match any company"
+      : `Aplicant is suitable for ${qualified ? "Company A " : ""}${
+          requirementsMet ? "Company B " : ""
+        }${salaryExpectationsMet ? "Company C" : ""}`;
   }
 }
 
